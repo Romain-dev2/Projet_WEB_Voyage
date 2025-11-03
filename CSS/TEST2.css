@@ -1,0 +1,463 @@
+:root {
+    /*  Palette de Couleurs  */
+    --primary-color: #1A5F7A;     /* Bleu principal : titres/éléments importants */
+    --secondary-color: #159895;   /* Bleu-vert : accents et bordures */
+    --accent-color: #57C5B6;      /* Vert clair pour les effets interactifs et survols */
+    --background-light: #F8F9FA;  /* Couleur de fond claire pour la lisibilité */
+    --text-color: #333333;        /* Couleur de texte principale pour le contraste */
+    --gradient-start: #1A5F7A;    /* Début du dégradé pour les headers et footers */
+    --gradient-end: #57C5B6;      /* Fin du dégradé pour les headers et footers */
+}
+
+
+/* Reset et Styles Globaux */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, var(--background-light) 0%, #E9ECEF 100%);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-bottom: 50px;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: header-shimmer 10s infinite linear;
+}
+
+@keyframes header-shimmer {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.logo-uvsq {
+    max-height: 120px;
+    max-width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.logo-uvsq:hover {
+    transform: scale(1.05);
+}
+
+/* Navigation */
+.navigation {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.navigation a:hover {
+    background-color: rgba(87, 197, 182, 0.1);
+    color: var(--secondary-color);
+}
+
+/* Sections */
+.section {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.section-title {
+    color: var(--primary-color);
+    border-bottom: 4px solid var(--accent-color);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Cartes */
+.card {
+    background-color: white;
+    border-left: 5px solid var(--secondary-color);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow:
+            0 10px 25px rgba(0, 0, 0, 0.08),
+            0 5px 15px rgba(0, 0, 0, 0.05),
+            inset 0 0 10px rgba(87, 197, 182, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+            circle,
+            rgba(87, 197, 182, 0.05) 0%,
+            transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow:
+            0 15px 30px rgba(0, 0, 0, 0.12),
+            0 8px 20px rgba(0, 0, 0, 0.08),
+            inset 0 0 15px rgba(87, 197, 182, 0.1);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+/* Tableaux */
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.table th, .table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+    border-right: 1px solid #e0e0e0;
+}
+
+.table th {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+}
+
+.table tr:nth-child(even) {
+    background-color: rgba(87, 197, 182, 0.05);
+}
+
+.table tr:hover {
+    background-color: rgba(87, 197, 182, 0.1);
+}
+
+/* Carousel */
+.carousel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 10px 0;
+}
+
+.carousel-slide {
+    min-width: 300px;
+    max-width: 400px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    scroll-snap-align: center;
+    background-color: white;
+    text-align: center;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.carousel-slide p {
+    padding: 10px;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+/* Sommaire */
+.site-summary {
+    width: 100%;
+    margin-bottom: 30px;
+    background: linear-gradient(145deg, #F0F4F8, #F9FAFB);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow:
+            0 10px 25px rgba(0, 0, 0, 0.1),
+            inset 0 0 15px rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(87, 197, 182, 0.1);
+}
+
+.site-summary h3 {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+}
+
+.summary-nav {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    gap: 15px;
+}
+
+.summary-nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+    padding: 12px 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    background-color: white;
+    border: 2px solid var(--accent-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.summary-nav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+            120deg,
+            transparent,
+            rgba(87, 197, 182, 0.2),
+            transparent
+    );
+    transition: all 0.6s ease;
+}
+
+.summary-nav a:hover::before,
+.summary-nav a:focus::before {
+    left: 100%;
+}
+
+.summary-nav a:hover,
+.summary-nav a:focus {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    color: var(--secondary-color);
+    background-color: rgba(87, 197, 182, 0.025);
+}
+
+/* Icônes Japon (Jour) */
+.japan-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    padding: 30px 0;
+}
+
+.icon-link {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.icon-link:hover, .icon-link:focus {
+    transform: scale(1.2);
+}
+
+.icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+    padding: 15px;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+.icon-container:hover,
+.icon-container:focus {
+    transform: scale(1.05) rotate(3deg);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.icon-container .icon {
+    width: 130px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    filter: brightness(0.9) contrast(1.1);
+    transition: transform 0.3s ease;
+}
+
+.icon-container:hover .icon,
+.icon-container:focus .icon {
+    transform: scale(1.1);
+}
+
+.icon-container span {
+    font-weight: 600;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-bottom: 50px;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: header-shimmer 10s infinite linear;
+    pointer-events: none;
+}
+
+@keyframes footer-shimmer {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Listes */
+ul {
+    padding-left: 40px;
+    list-style-position: outside;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .japan-icons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .icon-container {
+        width: 120px;
+        padding: 10px;
+    }
+
+    .icon-container .icon {
+        width: 100px;
+        height: 120px;
+    }
+}
+
+/* Utilitaires */
+.center-x {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

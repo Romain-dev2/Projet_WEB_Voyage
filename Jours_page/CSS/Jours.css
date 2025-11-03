@@ -1,0 +1,178 @@
+/* Variables de couleurs globales */
+:root {
+    --primary-color: #1A5F7A;     /* Bleu foncé principal */
+    --secondary-color: #159895;   /* Bleu-vert secondaire */
+    --accent-color: #57C5B6;      /* Vert d'eau pour les accents */
+    --background-light: #F8F9FA;  /* Fond clair */
+    --text-color: #333333;        /* Couleur de texte principale */
+    --white: #FFFFFF;             /* Blanc pur */
+}
+
+/* Réinitialisation des styles par défaut */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styles de base pour le body */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Conteneur principal */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Styles de l'en-tête */
+.header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+/* Styles de section*/
+.section {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* style pour les titres */
+.section-title {
+    color: var(--secondary-color);
+    border-bottom: 3px solid var(--secondary-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Détails du jour*/
+.day-details {
+    background-color: white;
+    border-left: 5px solid var(--secondary-color);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow:
+            0 10px 25px rgba(0, 0, 0, 0.08),
+            0 5px 15px rgba(0, 0, 0, 0.05),
+            inset 0 0 10px rgba(87, 197, 182, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.day-details::before {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+            circle,
+            rgba(87, 197, 182, 0.05) 0%,
+            transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.day-details:hover {
+    transform: translateY(-5px);
+    box-shadow:
+            0 15px 30px rgba(0, 0, 0, 0.12),
+            0 8px 20px rgba(0, 0, 0, 0.08),
+            inset 0 0 15px rgba(87, 197, 182, 0.1);
+}
+
+.day-details:hover::before {
+    opacity: 1;
+}
+
+/* Galeries d'images */
+.food-gallery, .cultural-gallery {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.food-item, .cultural-site {
+    text-align: center;
+    max-width: 300px;
+}
+
+.food-item img, .cultural-site img {
+    max-width: 250px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Bouton de retour*/
+.return-btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--secondary-color);
+}
+
+.return-btn:focus, .return-btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transform: scale(1.2);
+    border-color: var(--accent-color);
+}
+
+.return-btn:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.return-btn:active {
+    transform: scale(0.95);
+    background-color: var(--primary-color);
+    opacity: 0.8;
+}
+
+/* Styles des images */
+img {
+    border: 3px solid var(--secondary-color);
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 15px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles des listes */
+ul, ol {
+    padding-left: 40px;
+    list-style-position: outside;
+}
