@@ -156,6 +156,6 @@ xdg-open index.html
 
 ## 👥 Auteurs
 
-**Romain MESSAGER & Zyed TARCHOUN**  
+**Romain MESSAGER**  
 Étudiants en 2ᵉ année de BUT Informatique – IUT de Vélizy (UVSQ)  
 🔗 [GitHub – Romain-dev2](https://github.com/Romain-dev2)
